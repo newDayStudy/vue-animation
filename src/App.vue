@@ -21,5 +21,7 @@ export default {
   color: #2c3e50;
   margin-top: 60px;
 }
-
+h1{
+  font-size: 40px;
+}
 </style>
