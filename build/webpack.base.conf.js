@@ -31,6 +31,10 @@ module.exports = {
       ? config.build.assetsPublicPath
       : config.dev.assetsPublicPath
   },
+  externals:{
+    "element-ui": "ElementUI",
+    "vue":"Vue"
+  },
   resolve: {
     extensions: ['.js', '.vue', '.json'],
     alias: {
@@ -40,11 +44,15 @@ module.exports = {
   },
   module: {
     rules: [
-      ...(config.dev.useEslint ? [createLintingRule()] : []),
+      // ...(config.dev.useEslint ? [createLintingRule()] : []),
       {
         test: /\.vue$/,
         loader: 'vue-loader',
         options: vueLoaderConfig
+      },
+      {
+        test: /\.scss$/,
+        loader: 'sass-loader!style-loader|css-loader'
       },
       {
         test: /\.js$/,

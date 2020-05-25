@@ -1,8 +1,8 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-
-      <router-view/>
+    <transition name="fade">
+      <router-view class="route-view"/>
+    </transition>
   </div>
 </template>
 
@@ -13,15 +13,25 @@ export default {
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+html,body{
+  overflow:hidden;
+  width:100%;
 }
-h1{
-  font-size: 40px;
+.fade-enter-active,
+.fade-leave-active{
+  transition:.5s;
+}
+.fade-enter{
+  opacity:0;
+  transform:translate3d(100%,0,0);
+}
+.fade-leave-to{
+  opacity:0;
+  transform: translate3d(100%,0,0);
+}
+.route-view{
+  position: absolute;
+  left:0;
+  right:0;
 }
 </style>
